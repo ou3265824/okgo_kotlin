@@ -1,4 +1,4 @@
-package com.olq.multiple;
+package com.olq.multiple.base;
 
 import com.myolq.frame.base.BaseActivity;
 

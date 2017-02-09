@@ -2,8 +2,8 @@ package com.olq.multiple;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+
+import com.olq.multiple.base.InitActivity;
 
 public class LaunchActivity extends InitActivity {
 

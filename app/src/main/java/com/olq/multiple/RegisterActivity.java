@@ -1,13 +1,19 @@
 package com.olq.multiple;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import com.olq.multiple.base.InitActivity;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends InitActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+    public int getLayout() {
+        return R.layout.activity_register;
     }
+
+    @Override
+    public void onCreate() {
+
+    }
+
+
+
 }
