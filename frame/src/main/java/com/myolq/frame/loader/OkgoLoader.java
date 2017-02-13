@@ -163,6 +163,20 @@ public class OkgoLoader {
 
                 });
     }
+    public void sendByGet(String url, final StringCallBack callBack){
+        OkGo.get(url)     // 请求方式和请求url
+                .tag(this)                       // 请求的 tag, 主要用于取消对应的请求
+                .cacheKey("cacheKey")            // 设置当前请求的缓存key,建议每个不同功能的请求设置一个
+                .cacheMode(CacheMode.DEFAULT)    // 缓存模式，详细请看缓存介绍
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                        // s 即为所需要的结果
+                        disposeCallBack.onSuccess(callBack,s,call,response);
+                    }
+
+                });
+    }
 
     /**
      * 请求 Bitmap 对象
@@ -232,8 +246,34 @@ public class OkgoLoader {
      * 普通Post，直接上传Json类型的文本
      * @param url
      */
-    public void sendByUploadingJson(String url,Object object,final GsonCallBack<?> callBack){
-        HashMap<String, String> params = new HashMap<>();
+    public void sendByPostUploadingJson(String url,Object object,final GsonCallBack<?> callBack){
+//        HashMap<String, String> params = new HashMap<>();
+//        params.put("key1", "value1");
+//        params.put("key2", "这里是需要提交的json格式数据");
+//        params.put("key3", "也可以使用三方工具将对象转成json字符串");
+//        params.put("key4", "其实你怎么高兴怎么写都行");
+//        JSONObject jsonObject = new JSONObject(params);
+
+        OkGo.post(url)//
+                .tag(this)//
+                .upJson(GsonUtils.getBeanToJson(object))//
+//                .upJson(jsonObject.toString())//
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                        //上传成功
+                        disposeCallBack.onSuccess(callBack,s,call,response);
+                    }
+
+
+                    @Override
+                    public void upProgress(long currentSize, long totalSize, float progress, long networkSpeed) {
+                        //这里回调上传进度(该回调在主线程,可以直接更新ui)
+                    }
+                });
+    }
+    public void sendByPostUploadingJson(String url,Object object,final StringCallBack callBack){
+//        HashMap<String, String> params = new HashMap<>();
 //        params.put("key1", "value1");
 //        params.put("key2", "这里是需要提交的json格式数据");
 //        params.put("key3", "也可以使用三方工具将对象转成json字符串");

@@ -4,13 +4,18 @@ package com.olq.multiple.base;
  * Created by Administrator on 2017/2/8.
  */
 
-public interface BaseUrl {
+public class BaseUrl {
 
-    String URL="https://api.bmob.cn/";
-    String CODE=URL+"1/";
+   public static String URL="https://api.bmob.cn/";
+    public static String CODE=URL+"1/";
 
-    String USERS=CODE+"users";
+    public static String USERS=CODE+"users";
+    public static String LOGIN=CODE+"login";
 
+
+    public static String getLogin(String username,String password){
+        return LOGIN+"?username="+username+"&password="+password;
+    }
 
 
 }
