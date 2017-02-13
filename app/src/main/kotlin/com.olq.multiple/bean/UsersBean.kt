@@ -9,5 +9,5 @@ data class UsersBean (
         var email:String="",
 //        var createdAt:String="",
 //        var objectId:String="",
-        var sessionToken:String=""
+        var sessionToken:String?=null
 )

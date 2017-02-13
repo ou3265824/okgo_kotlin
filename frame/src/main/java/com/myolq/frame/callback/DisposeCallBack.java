@@ -1,10 +1,13 @@
 package com.myolq.frame.callback;
 
 import android.graphics.Bitmap;
+import android.widget.Toast;
 
+import com.myolq.frame.ErrorBean;
 import com.myolq.frame.Utils.GsonUtils;
 
 import java.io.File;
+import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -43,6 +46,12 @@ public class DisposeCallBack {
     public <T> void onError(HttpCallBack<T> callback, Call call, Response response, Exception e){
         if(callback!=null)
         {
+//            ErrorBean baseBean= null;
+//            try {
+//                baseBean = GsonUtils.getBeanFromJson(response.body().string(),ErrorBean.class);
+//            } catch (IOException e1) {
+//                e1.printStackTrace();
+//            }
             callback.onError(call,response,e);
         }
 

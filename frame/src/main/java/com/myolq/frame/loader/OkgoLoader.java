@@ -12,6 +12,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.lzy.okgo.model.HttpHeaders;
 import com.lzy.okgo.model.HttpParams;
+import com.myolq.frame.ErrorBean;
 import com.myolq.frame.NetConfig;
 import com.myolq.frame.Utils.GsonUtils;
 import com.myolq.frame.callback.BitmapCallBack;
@@ -265,6 +266,11 @@ public class OkgoLoader {
                         disposeCallBack.onSuccess(callBack,s,call,response);
                     }
 
+                    @Override
+                    public void onError(Call call, Response response, Exception e) {
+                        super.onError(call, response, e);
+                        disposeCallBack.onError(callBack,call, response, e);
+                    }
 
                     @Override
                     public void upProgress(long currentSize, long totalSize, float progress, long networkSpeed) {
@@ -290,6 +296,8 @@ public class OkgoLoader {
                         //上传成功
                         disposeCallBack.onSuccess(callBack,s,call,response);
                     }
+
+
 
 
                     @Override
@@ -478,10 +486,10 @@ public class OkgoLoader {
             }
         }
 
-        public <T> void onError(HttpCallBack<T> callback, Call call, Response response, Exception e){
+        public <T> void onError(HttpCallBack<T> callback, ErrorBean errorBean, Call call, Response response, Exception e){
             if(callback!=null)
             {
-                callback.onError(call,response,e);
+                callback.onError(call,errorBean,response,e);
             }
 
         }
