@@ -7,26 +7,31 @@ import com.myolq.frame.callback.GsonCallBack
 import com.myolq.frame.callback.StringCallBack
 import com.myolq.frame.loader.OkgoLoader
 import com.olq.multiple.base.BaseUrl
+import com.olq.multiple.base.InitActivity
 import com.olq.multiple.bean.BaseBean
 import com.olq.multiple.bean.UsersBean
+import kotlinx.android.synthetic.main.activity_login.*
 import okhttp3.Call
 import okhttp3.Response
 import java.net.Proxy
 
-class LoginActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        OkgoLoader.getInstance().sendByGet(BaseUrl.getLogin("admin","123456"), object : StringCallBack(){
-            override fun onSuccess(t: String?, call: Call?, response: Response?) {
-                Log.i("test",t);
-            }
-
-            override fun onError(call: Call?, response: Response?, e: Exception?) {
-                throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-        });
+class LoginActivity : InitActivity() {
+    override fun getLayout(): Int {
+        return R.layout.activity_login
     }
+
+    override fun onCreate() {
+        et_account.setOnClickListener {  }
+//        OkgoLoader.getInstance().sendByGet(BaseUrl.getLogin("admin","1234567"), object : StringCallBack(){
+//            override fun onSuccess(t: String?, call: Call?, response: Response?) {
+//                Log.i("test",t);
+//            }
+//
+//            override fun onError(call: Call?, response: Response?, e: Exception?) {
+//                Log.i("test", response!!.body().string())
+//            }
+//
+//        });
+    }
+
 }

@@ -471,28 +471,28 @@ public class OkgoLoader {
 //    }
 
 
-        public <T> void onSuccess(HttpCallBack<T> callback, String result, Call call, Response response){
-            if (call!=null){
-                if (call instanceof GsonCallBack){
-                    GsonCallBack gsonCallBack=((GsonCallBack) call);
-                    gsonCallBack.onSuccess(GsonUtils.getBeanFromJson(result,gsonCallBack.getType()),call,response);
-                }else if(call instanceof StringCallBack){
-                    ((StringCallBack) call).onSuccess(result,call,response);
-                }else if (call instanceof FileCallBack){
+//        public <T> void onSuccess(HttpCallBack<T> callback, String result, Call call, Response response){
+//            if (call!=null){
+//                if (call instanceof GsonCallBack){
+//                    GsonCallBack gsonCallBack=((GsonCallBack) call);
+//                    gsonCallBack.onSuccess(GsonUtils.getBeanFromJson(result,gsonCallBack.getType()),call,response);
+//                }else if(call instanceof StringCallBack){
+//                    ((StringCallBack) call).onSuccess(result,call,response);
+//                }else if (call instanceof FileCallBack){
+//
+//                }else if (call instanceof BitmapCallBack){
+//
+//                }
+//            }
+//        }
 
-                }else if (call instanceof BitmapCallBack){
-
-                }
-            }
-        }
-
-        public <T> void onError(HttpCallBack<T> callback, ErrorBean errorBean, Call call, Response response, Exception e){
-            if(callback!=null)
-            {
-                callback.onError(call,errorBean,response,e);
-            }
-
-        }
+//        public <T> void onError(HttpCallBack<T> callback, ErrorBean errorBean, Call call, Response response, Exception e){
+//            if(callback!=null)
+//            {
+//                callback.onError(call,response,e);
+//            }
+//
+//        }
 
 
 

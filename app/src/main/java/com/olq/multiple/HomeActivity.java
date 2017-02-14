@@ -29,7 +29,8 @@ public class HomeActivity extends InitActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+//                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             }
         });
 //        text1.setText("点击");

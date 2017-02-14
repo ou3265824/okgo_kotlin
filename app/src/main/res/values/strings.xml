@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Multiple</string>
+    <string name="title_activity_updata_pwd">UpdataPwdActivity</string>
 </resources>

@@ -10,6 +10,7 @@ import com.lzy.okgo.request.BaseRequest;
 import com.myolq.frame.ErrorBean;
 import com.myolq.frame.Utils.GsonUtils;
 import com.myolq.frame.callback.GsonCallBack;
+import com.myolq.frame.callback.StringCallBack;
 import com.myolq.frame.loader.OkgoLoader;
 import com.olq.multiple.base.BaseUrl;
 import com.olq.multiple.base.InitActivity;
@@ -20,6 +21,8 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Response;
+
+import static android.R.attr.password;
 
 public class RegisterActivity extends InitActivity {
 
@@ -33,9 +36,9 @@ public class RegisterActivity extends InitActivity {
 //        UsersBean("admin",123456,"123456@qq.com");
 //        UsersBean usersBean=new UsersBean("admin","1234562","1234561@qq.com");
         UsersBean users=new UsersBean();
-        users.setUsername("c1");
+        users.setUsername("d1");
         users.setPassword("123456");
-        users.setEmail("c1234561@qq.com");
+        users.setEmail("d1234561@qq.com");
 //        OkGo.post(BaseUrl.USERS)//
 //                .tag(this)//
 //                .upJson(GsonUtils.getBeanToJson(users))//
@@ -88,11 +91,11 @@ public class RegisterActivity extends InitActivity {
 //                        Log.i("test","onCacheSuccess");
 //                    }
 //                });
-
-//        OkgoLoader.getInstance().sendByPostUploadingJson(BaseUrl.USERS, users, new StringCallBack() {
+//        com.olq.multiple.base.BaseBean baseBean=new com.olq.multiple.base.BaseBean("13022177558","DBDsI5DGf6s=");
+//        OkgoLoader.getInstance().sendByPostUploadingJson("http://192.168.1.203:9090/sctd/operate/scuser/checklogin", baseBean, new StringCallBack() {
 //            @Override
 //            public void onSuccess(String s, Call call, Response response) {
-//                Log.i("test",s);
+//                Log.i("test","onSuccess:"+s);
 //            }
 //
 //            @Override
