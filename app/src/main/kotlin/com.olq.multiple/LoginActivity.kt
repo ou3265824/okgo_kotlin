@@ -21,17 +21,21 @@ class LoginActivity : InitActivity() {
     }
 
     override fun onCreate() {
-        et_account.setOnClickListener {  }
-//        OkgoLoader.getInstance().sendByGet(BaseUrl.getLogin("admin","1234567"), object : StringCallBack(){
-//            override fun onSuccess(t: String?, call: Call?, response: Response?) {
-//                Log.i("test",t);
-//            }
-//
-//            override fun onError(call: Call?, response: Response?, e: Exception?) {
-//                Log.i("test", response!!.body().string())
-//            }
-//
-//        });
+        bt_login.setOnClickListener {
+
+            var account=et_account.text.toString()
+            var password=et_password.text.toString()
+            OkgoLoader.getInstance().sendByGet(BaseUrl.getLogin(account, password), object : StringCallBack() {
+                override fun onSuccess(t: String?, call: Call?, response: Response?) {
+                    Log.i("test", t);
+                }
+
+                override fun onError(call: Call?, response: Response?, e: Exception?) {
+                    Log.i("test", response!!.body().string())
+                }
+
+            });
+        }
     }
 
 }

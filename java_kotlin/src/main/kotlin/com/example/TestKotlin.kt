@@ -7,7 +7,9 @@ package com.example
 fun main(array: Array<String>){
 //    at()
 //    eash()
-    list()
+//    list()
+    addlist()
+
 }
 
 /**
@@ -67,4 +69,16 @@ fun MutableList<Int>.swap(x: Int, y: Int) {
     this[y] = temp
 }
 
+fun addlist(){
+    var list= arrayListOf<String>()
+    var map= hashMapOf<Int,String>()
+    for (a in 10..20){
+        list.add(a.toString())
 
+    }
+    for (a in 0..10){
+        map.put(a,list[a])
+    }
+    println(map.toString())
+    println(list.toString())
+}
