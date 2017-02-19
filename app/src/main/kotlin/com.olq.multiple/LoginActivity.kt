@@ -30,6 +30,7 @@ class LoginActivity : InitActivity() {
             val account=et_account.text.toString()
             val password=et_password.text.toString()
             if (CharacterUtils.isEmpty(account)){
+                
                 Toast.makeText(this,"账号不能为空",Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
