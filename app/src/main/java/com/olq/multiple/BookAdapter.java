@@ -21,7 +21,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder>{
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(mContext).inflate(R.layout.item_book,null);
+        View view= LayoutInflater.from(mContext).inflate(R.layout.item_book,parent,false);
 
         return new Holder(view);
     }

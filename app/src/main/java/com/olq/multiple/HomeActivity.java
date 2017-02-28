@@ -66,7 +66,7 @@ public class HomeActivity extends BaseActivity
             case 0:
                 if (bookFragment == null) {
                     bookFragment = new BookFragment();
-                    transaction.add(bookFragment, AppConfig.BOOK);
+                    transaction.add(R.id.fl_home, bookFragment);
                 } else {
                     transaction.show(bookFragment);
                 }
