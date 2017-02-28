@@ -3,14 +3,14 @@
     package="com.olq.multiple">
 
     <application
-        android:name=".base.InitApplication"
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".HomeActivity"
+            android:name=".LaunchActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LaunchActivity" />
+        <activity android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity
@@ -29,6 +31,7 @@
             android:name=".UpdataPwdActivity"
             android:label="@string/title_activity_updata_pwd"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".test.TestActivity"></activity>
     </application>
 
 </manifest>

@@ -12,8 +12,8 @@ import com.myolq.frame.Utils.GsonUtils;
 import com.myolq.frame.callback.GsonCallBack;
 import com.myolq.frame.callback.StringCallBack;
 import com.myolq.frame.loader.OkgoLoader;
+import com.olq.multiple.base.BaseActivity;
 import com.olq.multiple.base.BaseUrl;
-import com.olq.multiple.base.InitActivity;
 import com.olq.multiple.bean.BaseBean;
 import com.olq.multiple.bean.UsersBean;
 
@@ -24,7 +24,7 @@ import okhttp3.Response;
 
 import static android.R.attr.password;
 
-public class RegisterActivity extends InitActivity {
+public class RegisterActivity extends BaseActivity {
 
     @Override
     public int getLayout() {

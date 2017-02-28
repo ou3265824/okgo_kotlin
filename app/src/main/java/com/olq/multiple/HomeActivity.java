@@ -1,46 +1,94 @@
 package com.olq.multiple;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.RadioButton;
 
-public class HomeActivity extends AppCompatActivity
+import com.olq.multiple.base.BaseActivity;
+import com.olq.multiple.config.AppConfig;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    @BindView(R.id.fl_home)
+    FrameLayout flHome;
+    @BindView(R.id.rb_book)
+    RadioButton rbBook;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+    private BookFragment bookFragment;
+    private CartoonFragment cartoonFragment;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    public int getLayout() {
+        return R.layout.activity_home;
+    }
+
+    @Override
+    public void onCreate() {
+        ButterKnife.bind(this);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        setTabFragment(0);
     }
+
+
+    private void setTabFragment(int index) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        switch (index) {
+            case 0:
+                if (bookFragment == null) {
+                    bookFragment = new BookFragment();
+                    transaction.add(bookFragment, AppConfig.BOOK);
+                } else {
+                    transaction.show(bookFragment);
+                }
+                break;
+            case 1:
+                cartoonFragment = new CartoonFragment();
+                break;
+        }
+        transaction.commitAllowingStateLoss();
+    }
+
+    @OnClick(R.id.rb_book)
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.rb_book:
+                setTabFragment(0);
+                break;
+
+        }
+
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -98,4 +146,6 @@ public class HomeActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.myolq.frame.base;
+package com.olq.multiple.base;
 
 import android.app.Application;
 

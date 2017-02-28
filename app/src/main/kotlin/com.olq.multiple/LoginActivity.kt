@@ -9,8 +9,8 @@ import com.myolq.frame.Utils.CharacterUtils
 import com.myolq.frame.callback.GsonCallBack
 import com.myolq.frame.callback.StringCallBack
 import com.myolq.frame.loader.OkgoLoader
+import com.olq.multiple.base.BaseActivity
 import com.olq.multiple.base.BaseUrl
-import com.olq.multiple.base.InitActivity
 import com.olq.multiple.bean.BaseBean
 import com.olq.multiple.bean.UsersBean
 import kotlinx.android.synthetic.main.activity_login.*
@@ -18,7 +18,7 @@ import okhttp3.Call
 import okhttp3.Response
 import java.net.Proxy
 
-class LoginActivity : InitActivity() {
+class LoginActivity : BaseActivity() {
 
     override fun getLayout(): Int {
         return R.layout.activity_login
