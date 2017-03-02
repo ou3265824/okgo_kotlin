@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/2/28.
  */
@@ -14,9 +16,11 @@ import android.widget.TextView;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder>{
 
     private Context mContext;
+    private List<BookFragment.Recommend.RecommendBooks> list;
 
-    public BookAdapter(Context mContext) {
+    public BookAdapter(Context mContext,List<BookFragment.Recommend.RecommendBooks> list) {
         this.mContext = mContext;
+        this.list=list;
     }
 
     @Override
@@ -28,12 +32,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder>{
 
     @Override
     public int getItemCount() {
-        return 10;
+        return list==null?0:list.size();
     }
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        holder.tvTitle.setText("A"+position);
+        holder.tvTitle.setText(list.get(position).title+"----A"+position);
     }
 
     class Holder extends RecyclerView.ViewHolder{

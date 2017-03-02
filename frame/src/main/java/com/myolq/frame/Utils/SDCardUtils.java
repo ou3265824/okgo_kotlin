@@ -43,6 +43,10 @@ public class SDCardUtils
 				+ File.separator;
 	}
 
+	public static File getExternalStorageDirectory(){
+		return Environment.getExternalStorageDirectory();
+	}
+
 	/**
 	 * 获取SD卡的剩余容量 单位byte
 	 * 

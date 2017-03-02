@@ -4,13 +4,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.reflect.TypeToken;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
-import com.lzy.okgo.request.BaseRequest;
-import com.myolq.frame.ErrorBean;
 import com.myolq.frame.Utils.GsonUtils;
 import com.myolq.frame.callback.GsonCallBack;
-import com.myolq.frame.callback.StringCallBack;
 import com.myolq.frame.loader.OkgoLoader;
 import com.olq.multiple.base.BaseActivity;
 import com.olq.multiple.base.BaseUrl;
@@ -21,8 +16,6 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Response;
-
-import static android.R.attr.password;
 
 public class RegisterActivity extends BaseActivity {
 

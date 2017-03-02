@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
-import com.myolq.frame.Utils.CharacterUtils
 import com.myolq.frame.callback.GsonCallBack
 import com.myolq.frame.callback.StringCallBack
 import com.myolq.frame.loader.OkgoLoader
+import com.myolq.frame.Utils.CharacterUtils
 import com.olq.multiple.base.BaseActivity
 import com.olq.multiple.base.BaseUrl
 import com.olq.multiple.bean.BaseBean

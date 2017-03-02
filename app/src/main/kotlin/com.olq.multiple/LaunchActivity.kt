@@ -19,6 +19,7 @@ class LaunchActivity :BaseActivity(){
         var run= Runnable { startActivity(Intent(application,HomeActivity::class.java)) }
 //        handle.postDelayed(run,3000)
         handle.post(run)
+        finish()
     }
 
 }

@@ -12,7 +12,6 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.lzy.okgo.model.HttpHeaders;
 import com.lzy.okgo.model.HttpParams;
-import com.myolq.frame.ErrorBean;
 import com.myolq.frame.NetConfig;
 import com.myolq.frame.Utils.GsonUtils;
 import com.myolq.frame.callback.BitmapCallBack;
@@ -24,7 +23,6 @@ import com.myolq.frame.callback.StringCallBack;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.logging.Level;
 
 import okhttp3.Call;

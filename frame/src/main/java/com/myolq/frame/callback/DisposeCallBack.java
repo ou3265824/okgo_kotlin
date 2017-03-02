@@ -1,13 +1,10 @@
 package com.myolq.frame.callback;
 
 import android.graphics.Bitmap;
-import android.widget.Toast;
 
-import com.myolq.frame.ErrorBean;
 import com.myolq.frame.Utils.GsonUtils;
 
 import java.io.File;
-import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Response;
